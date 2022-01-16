@@ -36,3 +36,15 @@ schema = StructType([ \
 df = spark.createDataFrame(data=data2,schema=schema)
 df.printSchema()
 df.show(truncate=False)
+
+
+
+df2 = spark.read.csv("/src/resources/file.csv")
+
+df2 = spark.read.text("/src/resources/file.txt")
+
+
+df2 = spark.read.json("/src/resources/file.json")
+
+df.select("firstname","lastname").show()
+
