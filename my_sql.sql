@@ -12,3 +12,33 @@ One subtle difference: this drops rows with empty / NULL values from the result 
 SELECT t.name, v.value
 FROM   tbl t
 LEFT   JOIN unnest(t.values) v(value) ON true;
+
+
+
+ figured it out, guys
+
+if I have a table books enter image description here
+
+I can easily write a query
+
+SELECT 
+   id, 
+   data::json->'name' as name
+FROM books;
+And it will result in
+
+enter image description here
+
+I can also try to get non-existent column
+
+SELECT 
+   id, 
+   data::json->'non_existant' as non_existant
+FROM books;
+And it this case I will get empty result
+
+enter image description here
+
+Share
+
+
