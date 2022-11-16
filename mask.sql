@@ -11,4 +11,9 @@ select * from pytest.CUST_TABLE;
 
 COMMENT ON COLUMN pytest.CUST_TABLE.card_no IS 'MASKED WITH FUNCTION anon.random_name()';
 
-COMMENT ON COLUMN pytest.CUST_TABLE.phones IS 'MASKED WITH FUNCTION anon.partial (phones, 2, $$*-***-**$$, 2)';
+COMMENT ON COLUMN pytest.CUST_TABLE.phone IS 'MASKED WITH FUNCTION anon.partial (phone, 2, $$*-***-**$$, 2)';
+
+grant select on pytest.CUST_TABLE.phone to Normal_user
+
+set role Normal_user;
+select * from pytest.CUST_TABLE;
