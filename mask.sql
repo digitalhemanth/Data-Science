@@ -8,4 +8,7 @@ INSERT INTO pytest.CUST_TABLE VALUES ('001','Hemanth', 'Kumar','9966060174','060
 
 select * from pytest.CUST_TABLE;
 
-COMMENT ON COLUMN patient.name IS 'MASKED WITH FUNCTION anon.random_name()';
+
+COMMENT ON COLUMN pytest.CUST_TABLE.card_no IS 'MASKED WITH FUNCTION anon.random_name()';
+
+COMMENT ON COLUMN pytest.CUST_TABLE.phones IS 'MASKED WITH FUNCTION anon.partial (phones, 2, $$*-***-**$$, 2)';
