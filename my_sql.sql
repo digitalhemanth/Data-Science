@@ -21,6 +21,9 @@ if I have a table books enter image description here
 
 I can easily write a query
 
+
+
+
 SELECT 
    id, 
    data::json->'name' as name
